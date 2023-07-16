@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :likes
-  resources :comments
-  resources :posts
-  resources :users
+
+  resources :posts do
+    resources :comments do
+      resources :likes
+    end
+  end
+  resources :users, only: [:destroy]
 
   # Users
   post '/signup', to: 'users#create'
