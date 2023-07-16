@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
   resources :posts do
-    resources :comments do
-      resources :likes
-    end
+    resources :comments
+    resources :likes
   end
   resources :users, only: [:destroy]
 

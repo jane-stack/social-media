@@ -1,13 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :user_posts, foreign_key: "creator_id", class_name: "Post"
-    has_many :posts, through: :user_posts
-
-    has_many :user_comments
-    has_many :comments, through: :user_comments
-
-    has_many :user_likes
-    has_many :likes, through: :user_likes
+    has_many :comments
+    has_many :commented_posts, through: :comments, source: :post
 
     validates :name, presence: true
     validates :username, uniqueness: true, presence: true
