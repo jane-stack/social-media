@@ -1,6 +1,9 @@
 class LikesController < ApplicationController
     before_action :find_post
     before_action :find_like, only: [:destroy]
+    before_action only: [:destroy] do
+        authorize_user_resource(@like.user_id)
+    end
 
     def create
         current_user.likes.create(post: @post)
