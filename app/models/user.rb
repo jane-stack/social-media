@@ -4,6 +4,9 @@ class User < ApplicationRecord
     has_many :comments
     has_many :commented_posts, through: :comments, source: :post
 
+    has_many :likes
+    has_many :liked_posts, through: :likes, source: :post
+
     validates :name, presence: true
     validates :username, uniqueness: true, presence: true
     validates :password, length: { minimum: 8 }
