@@ -1,4 +1,5 @@
 body {
+  background-color: #282c34;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +11,90 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  /* min-height: 100vh; */
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  justify-content: center;
+  color: white;
+}
+
+/* handles error messages */
+.errors {
+  color: red;
+}
+/* handles the look of the NavBar */
+.navbar {
+  background-color: #282c34;
+  color: white;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+/* handles the size of the ChatSpace in Navbar */
+.nav-title {
+  font-size: calc(10px + 2vmin);
+}
+
+/* handles the navbar */
+.nav-link {
+  display: inline-block;
+  width: auto;
+  padding: 20px;
+  margin: 0 6px 6px;
+  background: none;
+  text-decoration: line;
+  color: white;
+}
+
+.words {
+  color: white;
+}
+
+/* handles login/logout forms */
+.form {
+  padding: 150px;
+  text-align: right;
+  padding-bottom: 100px;
+  background-color: white;
+  color: black;
+}
+
+thead {
+  width: 200px;
+  height: 50px;
+}
+
+tbody {
+  width: 200px;
+  height: 50px;
+}
+
+th {
+  border: 1px solid white;
+  width: 200px;
+}
+
+td {
+  text-align: center;
+  width: 200px;
+}
+
+.post-form {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.post-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }

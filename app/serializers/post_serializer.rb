@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :creator, :comments, :likes
+  attributes :id, :title, :content, :creator, :comments
 
   def creator
     {
@@ -8,5 +8,4 @@ class PostSerializer < ActiveModel::Serializer
       username: object.creator.username
     }
   end
-  
 end
