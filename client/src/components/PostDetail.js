@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { ContentContext } from "../context/ContentContext";
 
-function PostDetail ({ contents }) {
+function PostDetail () {
+    const { contents } = useContext(ContentContext);
     const id = parseInt(useParams().id);
     const post = contents.find(post => post.id === id);
 

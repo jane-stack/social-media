@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import PostCard from "../cards/PostCard";
 import NewPost from "../forms/NewPost";
+import { ContentContext } from "../context/ContentContext";
 
-function PostList ({ contents }) {
+function PostList () {
+    const { contents } = useContext(ContentContext);
 
     const renderPosts = contents.map(post => {
         return (

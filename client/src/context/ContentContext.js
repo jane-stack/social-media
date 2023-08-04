@@ -29,7 +29,7 @@ const ContentProvider = ({children}) => {
     }
 
     const deletePost = (id) => {
-        const updatedContentList = events.filter(post => post.id !== id)
+        const updatedContentList = contents.filter(post => post.id !== id)
         setContents(updatedContentList);
     }
 
