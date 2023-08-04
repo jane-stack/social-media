@@ -1,9 +1,6 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
 
 function PostCard ({ post }) {
-    const { user } = useContext(UserContext);
 
     return (
         <div className="box">

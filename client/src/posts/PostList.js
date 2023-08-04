@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import PostCard from "../cards/PostCard";
+import PostCard from "./PostCard";
 import NewPost from "../forms/NewPost";
 import { ContentContext } from "../context/ContentContext";
 
