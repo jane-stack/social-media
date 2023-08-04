@@ -99,3 +99,12 @@ code {
   color: white;
   text-align: left;
 }
+
+.box-2 {
+  background-color: #434343;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  text-align: center;
+}

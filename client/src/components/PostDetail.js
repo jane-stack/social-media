@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ContentContext } from "../context/ContentContext";
 
 function PostDetail () {
@@ -18,10 +18,10 @@ function PostDetail () {
     }
 
     return (
-        <div>
+        <div className="box-2">
             <h1>{post.title}</h1>
             <p>{post.content}</p>
-            <button>Edit</button>
+            <button><Link to={`/posts/${post.id}/edit`}>Edit</Link></button>
             <button onClick={onDeletePost}>Delete</button>
         </div>
     )

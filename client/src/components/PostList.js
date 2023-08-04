@@ -18,6 +18,9 @@ function PostList () {
     return (
         <div>
             <NewPost />
+            <hr />
+            <br />
+            <h2>All Posts</h2>
             {renderPosts}
         </div>
     )
