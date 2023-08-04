@@ -108,3 +108,8 @@ code {
   color: white;
   text-align: center;
 }
+
+.title-link {
+  color: white;
+  text-decoration: none;
+}
