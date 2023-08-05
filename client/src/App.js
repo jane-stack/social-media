@@ -4,7 +4,7 @@ import Navbar from './pages/Navbar';
 import LoginPage from './pages/LoginPage';
 import PostList from './posts/PostList';
 import PostDetail from './posts/PostDetail';
-import EditPost from './forms/EditPost';
+import EditPost from './posts/EditPost';
 import Home from './pages/Home';
 
 function App() {

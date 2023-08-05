@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { ErrorContext } from "../context/ErrorContext";
 import { ContentContext } from "../context/ContentContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function EditPost () {
     const { setErrors } = useContext(ErrorContext);
@@ -52,6 +52,7 @@ function EditPost () {
                 <textarea className="post-input-description" type="textbox" name="content" value={formData.content} onChange={handleChange} />
                 <br />
                 <button type="submit">Submit</button>
+                <button><Link to={`/posts/${post.id}`}>Cancel</Link></button>
             </div>
         </form>
     )

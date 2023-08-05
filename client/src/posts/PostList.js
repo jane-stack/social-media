@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import PostCard from "./PostCard";
-import NewPost from "../forms/NewPost";
+import NewPost from "./NewPost";
 import { ContentContext } from "../context/ContentContext";
 
 function PostList () {
@@ -20,7 +20,6 @@ function PostList () {
             <NewPost />
             <hr />
             <br />
-            <h2>All Posts</h2>
             {renderPosts}
         </div>
     )

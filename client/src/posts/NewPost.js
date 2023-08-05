@@ -33,7 +33,6 @@ function NewPost () {
 
     return (
         <form className="post-form" onSubmit={handleSubmit}>
-            <h2>Create a New Post</h2>
             <div className="new-post">
                 Title &nbsp;
                 <input className="post-input" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
