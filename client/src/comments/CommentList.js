@@ -39,12 +39,20 @@ function CommentList ({ post }) {
         setComments(updatedCommentList);
     }
 
+    // handle delete comments
+    const onDeleteComments = (id) => {
+        const updatedCommentList = comments.filter(comment => comment.id !== id)
+        setComments(updatedCommentList);
+    }
+
     const renderComments = comments.map(comment => {
         return (
             <CommentCard
                 key={comment.id}
+                post={post}
                 comment={comment}
                 openEditMode={openEditMode}
+                onDeleteComments={onDeleteComments}
             />
         )
     })
@@ -54,9 +62,10 @@ function CommentList ({ post }) {
             <h2>Comments</h2>
             <div className="box">
             {renderComments}
+            {/* <PostComment post={post} addComment={addComment} comments={comments} /> */}
             {onEditMode ? (
                 <>
-                <CommentEdit closeEditMode={closeEditMode} onEditComment={onEditComment} />
+                <CommentEdit post={post} comments={comments} closeEditMode={closeEditMode} onEditComment={onEditComment} />
                 </>
             ):(
                 <>
