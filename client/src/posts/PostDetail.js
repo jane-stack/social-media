@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ContentContext } from "../context/ContentContext";
+import { UserContext} from "../context/UserContext";
 import CommentList from "../comments/CommentList";
 // import { ErrorContext } from "../context/ErrorContext";
 
 function PostDetail () {
     // const { setErrors } = useContext(ErrorContext);
+    const { user } = useContext(UserContext);
     const { contents, deletePost } = useContext(ContentContext);
     const id = parseInt(useParams().id);
     const post = contents.find(post => post.id === id);
@@ -64,8 +66,12 @@ function PostDetail () {
                     <span>❤️️</span>
                 </button>
                 <button className="edit-btn" onClick={openComment}>Comments</button>
-                <button className="edit-btn"><Link to={`/posts/${post.id}/edit`}>Edit</Link></button>
-                <button className="edit-btn" onClick={onDeletePost}>Delete</button>
+                {user && user.username === post.creator?.username && (
+                    <>
+                    <button className="edit-btn"><Link to={`/posts/${post.id}/edit`}>Edit</Link></button>
+                    <button className="edit-btn" onClick={onDeletePost}>Delete</button>
+                    </>
+                )}
             </div>
             <br />
             <hr />

@@ -160,9 +160,8 @@ a:visited {
 
 .input-edit {
   background: none;
-  width: 100%;
+  width: 80%;
   padding: 6px 10px;
   margin: 8px 0;
   color: white;
-  border: none;
 }

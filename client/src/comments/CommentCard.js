@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CommentEdit from "./CommentEdit";
+import { UserContext } from "../context/UserContext";
 
 function CommentCard ({post, comment, onDeleteComments, onEditComment}) {
+    const { user } = useContext(UserContext);
     const { id } = comment;
     const [onEditMode, setOnEditMode] = useState({});
     const [isHovered, setIsHovered] = useState(false);
@@ -35,8 +37,12 @@ function CommentCard ({post, comment, onDeleteComments, onEditComment}) {
             )}
             {isHovered && (
                 <div>
+                {user && user.username === comment.user.username && (
+                    <div>
                     <button className="edit-btn" onClick={() => toggleEditMode(comment.id)}>✏️</button>
                     <button className="delete-btn" onClick={deleteComment}>❌</button>
+                    </div>
+                )}
                 </div>
             )}
         </div>
