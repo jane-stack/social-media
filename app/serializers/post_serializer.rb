@@ -8,4 +8,5 @@ class PostSerializer < ActiveModel::Serializer
       username: object.creator.username
     }
   end
+
 end

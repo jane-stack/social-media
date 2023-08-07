@@ -5,6 +5,11 @@ class LikesController < ApplicationController
         authorize_user_resource(@like.user_id)
     end
 
+    def index
+        @likes = @post.likes
+        render json: @likes
+    end
+
     def create
         current_user.likes.create(post: @post)
         render json: {likes_count: @post.likes.count}

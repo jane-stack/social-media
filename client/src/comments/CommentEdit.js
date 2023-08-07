@@ -1,46 +1,38 @@
-// import { useContext, useState } from "react";
-// import { ErrorContext } from "../context/ErrorContext";
+import { useContext, useState } from "react";
+import { ErrorContext } from "../context/ErrorContext";
 
-function CommentEdit ({comment, post, onEditComment, closeEditMode}) {
-    // const { setErrors } = useContext(ErrorContext);
-    // const initialState = {
-    //     body: comment.body
-    // }
-    // const [formData, setFormData] = useState(initialState);
+function CommentEdit ({post, comment, onEditComment, onEditMode, setOnEditMode}) {
+    const { setErrors } = useContext(ErrorContext);
+    const [body, setBody] = useState(comment.body);
 
-    // const handleChange = (e) => {
-    //     const {name, value} = e.target;
-    //     setFormData({
-    //         ...formData,
-    //         [name]: value
-    //     })
-    // }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     fetch(`/posts/${post.id}/comments/${comment.id}`, {
-    //         method: "PATCH",
-    //         headers: {"Content-Type": "application/json"},
-    //         body: JSON.stringify(formData)
-    //     })
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //         if (data.errors) {
-    //             setErrors(data.errors)
-    //         } else {
-    //             onEditComment(data)
-    //             setErrors([])
-    //         }
-    //     })
-    // }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch(`/posts/${post.id}/comments/${comment.id}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                body: body
+            })
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            if (data.errors) {
+                setErrors(data.errors)
+            } else {
+                onEditComment(data)
+                setErrors([])
+                setOnEditMode(!onEditMode);
+            }
+        })
+    }
         
         return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div>
-            <input className="chat-textarea" type="text" name="body" />
+            <input className="input-edit" type="text" name="body" value={body} onChange={(e) => setBody(e.target.value)} />
             <br />
-            <button type="submit">Finish Editing</button>
-            <button onClick={closeEditMode}>Cancel</button>
+            <button className="edit-btn" type="submit">Done</button>
+            <button className="edit-btn" onClick={() => setOnEditMode(!onEditMode)}>Cancel</button>
             </div>
         </form>
     )

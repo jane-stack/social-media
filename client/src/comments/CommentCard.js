@@ -1,7 +1,9 @@
 import { useState } from "react";
+import CommentEdit from "./CommentEdit";
 
-function CommentCard ({post, comment, openEditMode, onDeleteComments}) {
+function CommentCard ({post, comment, onDeleteComments, onEditComment}) {
     const { id } = comment;
+    const [onEditMode, setOnEditMode] = useState({});
     const [isHovered, setIsHovered] = useState(false);
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -17,12 +19,23 @@ function CommentCard ({post, comment, openEditMode, onDeleteComments}) {
         onDeleteComments(id)
     }
 
+    const toggleEditMode = (commentId) => {
+        setOnEditMode((prevEditMode) => ({
+            ...prevEditMode,
+            [commentId]: !prevEditMode[commentId],
+        }));
+    };
+
     return (
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <p><strong>{comment.user.username}</strong> : {comment.body}</p>
+            {onEditMode[comment.id] ? (
+                <CommentEdit post={post} comment={comment} onEditComment={onEditComment} onEditMode={onEditMode} setOnEditMode={setOnEditMode}/>
+            ):(
+                <div><strong>{comment.user.username}</strong> : {comment.body}</div>
+            )}
             {isHovered && (
                 <div>
-                    <button className="edit-btn" onClick={openEditMode}>✏️</button>
+                    <button className="edit-btn" onClick={() => toggleEditMode(comment.id)}>✏️</button>
                     <button className="delete-btn" onClick={deleteComment}>❌</button>
                 </div>
             )}

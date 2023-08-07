@@ -2,18 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { ErrorContext } from "../context/ErrorContext";
 import CommentCard from "./CommentCard";
 import PostComment from "./PostComment";
-import CommentEdit from "./CommentEdit";
 
 function CommentList ({ post }) {
     const { setErrors } = useContext(ErrorContext);
     const [comments, setComments] = useState([]);
-    const [onEditMode, setOnEditMode] = useState(false);
-    const openEditMode = () => {
-        setOnEditMode(true);
-    }
-    const closeEditMode = () => {
-        setOnEditMode(false);
-    }
 
     useEffect(() => {
         fetch(`/posts/${post.id}/comments`)
@@ -51,8 +43,8 @@ function CommentList ({ post }) {
                 key={comment.id}
                 post={post}
                 comment={comment}
-                openEditMode={openEditMode}
                 onDeleteComments={onDeleteComments}
+                onEditComment={onEditComment}
             />
         )
     })
@@ -62,16 +54,9 @@ function CommentList ({ post }) {
             <h2>Comments</h2>
             <div className="box">
             {renderComments}
-            {/* <PostComment post={post} addComment={addComment} comments={comments} /> */}
-            {onEditMode ? (
-                <>
-                <CommentEdit post={post} comments={comments} closeEditMode={closeEditMode} onEditComment={onEditComment} />
-                </>
-            ):(
-                <>
-                <PostComment post={post} addComment={addComment} comments={comments} />
-                </>
-            )}
+            <br/>
+            <br/>
+            <PostComment post={post} addComment={addComment} comments={comments} />
             </div>
         </div>
     )
