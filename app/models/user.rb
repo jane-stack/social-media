@@ -1,10 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :user_posts, foreign_key: "creator_id", class_name: "Post"
-    has_many :comments
+    has_many :comments, dependent: :destroy
     has_many :commented_posts, through: :comments, source: :post
 
-    has_many :likes
+    has_many :likes, dependent: :destroy
     has_many :liked_posts, through: :likes, source: :post
 
     validates :name, presence: true

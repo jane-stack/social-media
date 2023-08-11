@@ -3,10 +3,10 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { ContentContext } from "../context/ContentContext";
 import { UserContext} from "../context/UserContext";
 import CommentList from "../comments/CommentList";
-// import { ErrorContext } from "../context/ErrorContext";
+import { ErrorContext } from "../context/ErrorContext";
 
 function PostDetail () {
-    // const { setErrors } = useContext(ErrorContext);
+    const { setErrors } = useContext(ErrorContext);
     const { user } = useContext(UserContext);
     const { contents, deletePost } = useContext(ContentContext);
     const id = parseInt(useParams().id);
@@ -14,37 +14,30 @@ function PostDetail () {
     const navigate = useNavigate();
     const [commentMode, setCommentMode] = useState(false);
     const openComment = () => setCommentMode(commentMode => !commentMode);
-    // const [likeCount, setLikeCount] = useState(0);
-    // const [activeBtn, setActiveBtn] = useState("none");
+    const [liked, setLiked] = useState(false);
 
-    // const handleLikeClick = () => {
-    //     if (activeBtn === "none") {
-    //         setLikeCount(likeCount + 1);
-    //         setActiveBtn("like");
-    //         return;
-    //     }
-        
-    //     if (activeBtn === "like") {
-    //         setLikeCount(likeCount - 1);
-    //         setActiveBtn("none");
-    //         return;
-    //     }
-    // }
-    // const handleLikes = () => {
+    const handleLike = () => {
+        fetch(`/posts/${post.id}/likes`, {
+            method: "POST",
+        })
+        .then(resp => {
+            if (resp.ok) {
+                setLiked(true)
+            }
+        })
+        .catch(error => setErrors(error))
+    }
+
+    // const handleUnlike = () => {
     //     fetch(`/posts/${post.id}/likes`, {
-    //         method: "POST",
-    //         headers: {"Content-Type": "application/json"},
-    //         body: JSON.stringify({})
+    //         method: "DELETE",
     //     })
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //         if (data.errors) {
-    //             setErrors(data.errors)
-    //         } else {
-    //             setLikeCount(data)
-    //             setErrors([])
+    //     .then(resp => {
+    //         if (resp.ok) {
+    //             setLiked(false);
     //         }
     //     })
+    //     .catch(error => setErrors(error))
     // }
 
     const onDeletePost = () => {
@@ -62,9 +55,11 @@ function PostDetail () {
                 <h1>{post.title}</h1>
                 <h5>{post.creator.username}</h5>
                 <p>{post.content}</p>
-                <button className="edit-btn">
-                    <span>❤️️</span>
-                </button>
+                {liked ? (
+                    <button className="edit-btn">Unlike</button>
+                ):(
+                    <button className="edit-btn" onClick={handleLike}>Like</button>
+                )}
                 <button className="edit-btn" onClick={openComment}>Comments</button>
                 {user && user.username === post.creator?.username && (
                     <>
