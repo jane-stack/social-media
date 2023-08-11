@@ -17,7 +17,7 @@ function Home () {
             </div>
             <br/><br/><br/>
             <div>
-                <h4>Commented On</h4>
+                <h4>Commented</h4>
                 {user.commented_posts.map(post => (
                     <div className="box-2" key={post.id}>
                         <h5><Link className="title-link" to={`/posts/${post.id}`}>{post.title}</Link></h5>
@@ -27,6 +27,11 @@ function Home () {
             <br/><br/><br/>
             <div>
                 <h4>Liked</h4>
+                {user.liked_posts.map(post => (
+                    <div className="box-2" key={post.id}>
+                        <h5><Link className="title-link" to={`/posts/${post.id}`}>{post.title}</Link></h5>
+                    </div>
+                ))}
             </div>
         </div>
     )

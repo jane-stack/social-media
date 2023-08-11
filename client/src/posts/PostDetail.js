@@ -14,7 +14,7 @@ function PostDetail () {
     const navigate = useNavigate();
     const [commentMode, setCommentMode] = useState(false);
     const openComment = () => setCommentMode(commentMode => !commentMode);
-    const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState(post.like);
 
     const handleLike = () => {
         fetch(`/posts/${post.id}/likes`, {
@@ -29,7 +29,7 @@ function PostDetail () {
     }
 
     // const handleUnlike = () => {
-    //     fetch(`/posts/${post.id}/likes`, {
+    //     fetch(`/posts/${post.id}/likes/${like.id}`, {
     //         method: "DELETE",
     //     })
     //     .then(resp => {
