@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, except: [:show]
-    resources :likes, only: [:create, :destroy]
+    resources :likes, only: [:index, :create, :destroy]
   end
   resources :users, only: [:destroy]
 
@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # Likes
-  get '/likes', to: 'likes#likes'
+  # post 'posts/:id/like', to: 'likes#like'
+  # post 'posts/:id/like', to: 'likes#unlike'
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

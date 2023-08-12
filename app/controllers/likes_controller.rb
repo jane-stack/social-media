@@ -1,27 +1,18 @@
 class LikesController < ApplicationController
-    before_action :find_post, only: [:create, :destroy]
-    before_action :find_like, only: [:destroy]
-    before_action only: [:destroy] do
-        authorize_user_resource(@like.user_id)
-    end
+    before_action :find_post
 
-    def likes
-        render json: Like.all
+    def index
+        render json: @post.likes.all
     end
 
     def create
-        @like = current_user.likes.new(post: @post)
-        if @like.save
-            render json: @like
-        else
-            render json: {errors: @like.errors.full_messages}, status: :unprocessable_entity
-        end
+        @post.likes.create(user_id: current_user.id)
+        head :ok
     end
 
     def destroy
-        @like = current_user.likes.find(params[:id])
-        @like.destroy
-        render json: {message: "Unliked"}
+        @post.likes.find_by(user_id: current_user.id).destroy
+        head :ok
     end
 
     private
@@ -30,7 +21,4 @@ class LikesController < ApplicationController
         @post = Post.find(params[:post_id])
     end
 
-    def find_like
-        @like = @post.likes.find(params[:id])
-    end
 end
