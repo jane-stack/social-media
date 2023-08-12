@@ -14,8 +14,8 @@ function PostDetail () {
     const navigate = useNavigate();
     const [commentMode, setCommentMode] = useState(false);
     const openComment = () => setCommentMode(commentMode => !commentMode);
-    const [postLikes, setPostLikes] = useState([])
-    const [liked, setLiked] = useState(true);
+    const [postLikes, setPostLikes] = useState(0);
+    const [liked, setLiked] = useState(false);
     const params = useParams();
 
     useEffect(() => {
@@ -32,9 +32,7 @@ function PostDetail () {
             },
         })
         .then(resp => resp.json())
-        .then(data => {
-            setLiked(data)
-        })
+        .then(setLiked(postLikes))
         .catch(error => {
             setErrors(error)
         })
@@ -48,9 +46,7 @@ function PostDetail () {
             },
         })
         .then(resp => resp.json())
-        .then(data => {
-            setLiked(data)
-        })
+        .then(setLiked(postLikes))
         .catch(error => {
             setErrors(error)
         })
