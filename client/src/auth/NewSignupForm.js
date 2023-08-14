@@ -9,6 +9,7 @@ function NewSignupForm () {
     const { addUser, loginUser } = useContext(UserContext);
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ function NewSignupForm () {
         fetch('/signup', {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({name, username, password})
+            body: JSON.stringify({name, username, email, password})
         })
         .then(resp => resp.json())
         .then(data => {
@@ -64,6 +65,17 @@ function NewSignupForm () {
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required={true}
+            />
+            </div>
+            <div>
+            Email &nbsp;
+            <input
+            type="text"
+            name="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required={true}
             />
             </div>

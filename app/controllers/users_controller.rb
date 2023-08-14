@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            UserMailer.with(user: @user).welcome_email.deliver_later
             session[:user_id] = @user.id
             render json: @user, status: 201
         else
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:name, :username, :password)
+        params.permit(:name, :username, :email, :password)
     end
 
 end

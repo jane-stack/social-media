@@ -8,7 +8,7 @@ class User < ApplicationRecord
     has_many :liked_posts, through: :likes, source: :post
 
     validates :name, presence: true
-    validates :username, uniqueness: true, presence: true
+    validates :username, :email, uniqueness: true, presence: true
     validates :password, length: { minimum: 8 }
 
     validate :password_lower_case

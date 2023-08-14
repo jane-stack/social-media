@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :user_posts, :commented_posts, :liked_posts
+  attributes :id, :name, :username, :email, :user_posts, :commented_posts, :liked_posts
 
   def user_posts
     object.user_posts.map { |user_post| {id: user_post.id, title: user_post.title, content: user_post.content}}

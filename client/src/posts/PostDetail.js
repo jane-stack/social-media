@@ -14,15 +14,19 @@ function PostDetail () {
     const navigate = useNavigate();
     const [commentMode, setCommentMode] = useState(false);
     const openComment = () => setCommentMode(commentMode => !commentMode);
-    const [postLikes, setPostLikes] = useState(0);
     const [liked, setLiked] = useState(false);
+    // const [postLikes, setPostLikes] = useState(0);
     const params = useParams();
 
     useEffect(() => {
         fetch(`/posts/${post.id}/likes`)
         .then(resp => resp.json())
-        .then(data => setPostLikes(data))
-    }, [post.id])
+        .then(data => {
+            // setPostLikes(data);
+            setLiked(data.liked);
+        })
+        .catch(error => setErrors(error))
+    }, [post.id, setErrors])
 
     const handleLike = () => {
         fetch(`/posts/${post.id}/likes`, {
@@ -32,10 +36,15 @@ function PostDetail () {
             },
         })
         .then(resp => resp.json())
-        .then(setLiked(postLikes))
+        .then(data => {
+            // setPostLikes(data);
+            if (data.success) {
+                setLiked(true);
+            }
+        })
         .catch(error => {
             setErrors(error)
-        })
+        });
     }
 
     const handleUnlike = () => {
@@ -46,10 +55,15 @@ function PostDetail () {
             },
         })
         .then(resp => resp.json())
-        .then(setLiked(postLikes))
+        .then(data => {
+            if (data.success) {
+                setLiked(false);
+            }
+            // setPostLikes(data);
+        })
         .catch(error => {
             setErrors(error)
-        })
+        });
     }
 
     const onDeletePost = () => {
@@ -58,7 +72,7 @@ function PostDetail () {
         })
         .then(resp => resp.json())
         .then(deletePost(post.id))
-        .then(navigate('/posts'))
+        .then(navigate(`/posts`))
     }
 
     return (
@@ -68,9 +82,9 @@ function PostDetail () {
                 <h5>{post.creator.username}</h5>
                 <p>{post.content}</p>
                 {liked ? (
-                    <button className="edit-btn" onClick={handleUnlike}>Unlike: {postLikes.length}</button>
+                    <button className="edit-btn" onClick={handleUnlike}>Unlike</button>
                 ):(
-                    <button className="edit-btn" onClick={handleLike}>like: {postLikes.length}</button>
+                    <button className="edit-btn" onClick={handleLike}>Like</button>
                 )}
                 <button className="edit-btn" onClick={openComment}>Comments</button>
                 {user && user.username === post.creator?.username && (
