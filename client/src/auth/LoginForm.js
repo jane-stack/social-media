@@ -42,7 +42,7 @@ function LoginForm () {
 
     return (
         <form className="form" onSubmit={handleSubmit}>
-            <h3>Welcome to ChatSpace</h3>
+            <h3>Welcome to Random Post</h3>
             <div>
             Username &nbsp;
             <input

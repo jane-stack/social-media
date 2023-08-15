@@ -45,7 +45,7 @@ function NewSignupForm () {
 
     return (
         <form className="form" onSubmit={handleSubmit}>
-            <h3>Create a ChatSpace Account</h3>
+            <h3>Create a Random Post Account</h3>
             <div>
             Full Name &nbsp;
             <input
