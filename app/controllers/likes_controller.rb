@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-    before_action :find_post, only: [:index]
+    before_action :find_post, only: [:index, :show]
 
     def total
         render json: Like.all
@@ -26,6 +26,10 @@ class LikesController < ApplicationController
     def index
         @liked = current_user.likes.exists?(post_id: @post.id)
         render json: {liked: @liked}
+    end
+
+    def show
+        render json: @post.likes.all
     end
 
     private

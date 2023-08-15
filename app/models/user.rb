@@ -7,6 +7,7 @@ class User < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_many :liked_posts, through: :likes, source: :post
 
+    before_save { email.downcase! }
     validates :name, presence: true
     validates :username, :email, uniqueness: true, presence: true
     validates :password, length: { minimum: 8 }
@@ -37,4 +38,10 @@ class User < ApplicationRecord
         return if password.count("0-9") > 0
         errors.add :password, ' must contain at least one number'
     end
+
+    # after_create_commit :send_welcome_email
+
+    # def send_welcome_email
+    #     WelcomeMailer.with(user: self).order_email.deliver_later
+    # end
 end
