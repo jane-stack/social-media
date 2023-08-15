@@ -15,8 +15,7 @@ function Home () {
                     </div>
                 ))}
             </div>
-            <br/><br/><br/>
-            <div>
+            {/* <div>
                 <h4>Commented</h4>
                 {user.commented_posts.map(post => (
                     <div className="box-2" key={post.id}>
@@ -24,7 +23,7 @@ function Home () {
                     </div>
                 ))}
             </div>
-            <br/><br/><br/>
+            <br/><br/><br/> */}
             <div>
                 <h4>Liked</h4>
                 {user.liked_posts.map(post => (
