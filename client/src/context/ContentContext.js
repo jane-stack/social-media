@@ -8,8 +8,14 @@ const ContentProvider = ({children}) => {
 
     useEffect(() => {
         fetch(`/posts`)
-        .then(resp => resp.json())
-        .then(data => setContents(data))
+        .then(resp => {
+            if (resp.ok) {
+                resp.json().then(data => {
+                    setContents(data)
+                    setErrors([])
+                })
+            }
+        })
         .catch(errors => setErrors(errors))
     }, [setErrors])
 

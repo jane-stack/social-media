@@ -11,11 +11,19 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :username, :email, uniqueness: true, presence: true
     validates :password, length: { minimum: 8 }
+    
+    # ,
+    # if: :password_validation_required?
 
     validate :password_lower_case
     validate :password_uppercase
     validate :password_special_char
     validate :password_contains_number
+
+    # def password_validation_required?
+    #     password = user.password_digest
+    #     password.nil? || password.empty?
+    # end
     
     def password_uppercase
         return if !!password.match(/\p{Upper}/)
@@ -39,9 +47,4 @@ class User < ApplicationRecord
         errors.add :password, ' must contain at least one number'
     end
 
-    # after_create_commit :send_welcome_email
-
-    # def send_welcome_email
-    #     WelcomeMailer.with(user: self).order_email.deliver_later
-    # end
 end
