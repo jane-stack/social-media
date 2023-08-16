@@ -169,3 +169,20 @@ a:visited {
 .home {
   display: flex;
 }
+
+.home-box {
+  /* padding: 1rem; */
+  margin: 1rem;
+  text-align: center;
+}
+
+.box-home {
+  background-color: #434343;
+  width: auto;
+  height: 30px;
+  padding: 1rem;
+  margin: 0.4rem;
+  border-radius: 0.5rem;
+  color: white;
+  text-align: center;
+}

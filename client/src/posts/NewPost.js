@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { ErrorContext } from "../context/ErrorContext";
 import { ContentContext } from "../context/ContentContext";
+import Errors from "../errors/Errors";
 
 function NewPost () {
     const { setErrors } = useContext(ErrorContext);
@@ -41,6 +42,7 @@ function NewPost () {
                 <br />
                 <button type="submit">Submit</button>
             </div>
+            <Errors />
         </form>
     )
 }

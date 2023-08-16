@@ -9,20 +9,18 @@ function PostDetail () {
     const { setErrors } = useContext(ErrorContext);
     const { user } = useContext(UserContext);
     const { contents, deletePost } = useContext(ContentContext);
-    const id = parseInt(useParams().id);
-    const post = contents.find(post => post.id === id);
+    const postId = parseInt(useParams().id);
+    const post = contents.find(post => post.id === postId);
     const navigate = useNavigate();
     const [commentMode, setCommentMode] = useState(false);
     const openComment = () => setCommentMode(commentMode => !commentMode);
     const [liked, setLiked] = useState(false);
-    // const [postLikes, setPostLikes] = useState(0);
     const params = useParams();
 
     useEffect(() => {
         fetch(`/posts/${post.id}/likes`)
         .then(resp => resp.json())
         .then(data => {
-            // setPostLikes(data);
             setLiked(data.liked);
         })
         .catch(error => setErrors(error))
@@ -37,7 +35,6 @@ function PostDetail () {
         })
         .then(resp => resp.json())
         .then(data => {
-            // setPostLikes(data);
             if (data.success) {
                 setLiked(true);
             }
@@ -59,7 +56,6 @@ function PostDetail () {
             if (data.success) {
                 setLiked(false);
             }
-            // setPostLikes(data);
         })
         .catch(error => {
             setErrors(error)
@@ -93,6 +89,7 @@ function PostDetail () {
                     <button className="edit-btn" onClick={onDeletePost}>Delete</button>
                     </>
                 )}
+                <br /><br />
             </div>
             <br />
             <hr />

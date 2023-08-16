@@ -18,27 +18,27 @@ function Home () {
 
     return (
         <div className="home">
-            <div>
+            <div className="home-box">
                 <h4>Your Posts</h4>
                 {user.user_posts?.map(post => (
-                    <div className="box-2" key={post.id}>
+                    <div className="box-home" key={post.id}>
                         <h5><Link className="title-link" to={`/posts/${post.id}`}>{post.title}</Link></h5>
                     </div>
                 ))}
             </div>
-            <div>
+            <div className="home-box">
                 <h4>Commented</h4>
                 {renderOnce?.map(post => (
-                    <div className="box-2" key={post.id}>
+                    <div className="box-home" key={post.id}>
                         <h5><Link className="title-link" to={`/posts/${post.id}`}>{post.title}</Link></h5>
                     </div>
                 ))}
             </div>
             <br/><br/><br/>
-            <div>
+            <div className="home-box">
                 <h4>Liked</h4>
                 {user.liked_posts?.map(post => (
-                    <div className="box-2" key={post.id}>
+                    <div className="box-home" key={post.id}>
                         <h5><Link className="title-link" to={`/posts/${post.id}`}>{post.title}</Link></h5>
                     </div>
                 ))}

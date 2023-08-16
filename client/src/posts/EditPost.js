@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { ErrorContext } from "../context/ErrorContext";
 import { ContentContext } from "../context/ContentContext";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Errors from "../errors/Errors";
 
 function EditPost () {
     const { setErrors } = useContext(ErrorContext);
@@ -54,6 +55,7 @@ function EditPost () {
                 <button type="submit">Submit</button>
                 <button><Link to={`/posts/${post.id}`}>Cancel</Link></button>
             </div>
+            <Errors />
         </form>
     )
 }
