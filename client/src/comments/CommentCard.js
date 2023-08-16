@@ -29,11 +29,11 @@ function CommentCard ({post, comment, onDeleteComments, onEditComment}) {
     };
 
     return (
-        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="box-comment">
             {onEditMode[comment.id] ? (
                 <CommentEdit post={post} comment={comment} onEditComment={onEditComment} onEditMode={onEditMode} setOnEditMode={setOnEditMode}/>
             ):(
-                <div><strong>{comment.user.username}</strong> : {comment.body}</div>
+                <div><strong className="username-color">{comment.user.username}</strong> : {comment.body}</div>
             )}
             {isHovered && (
                 <div>

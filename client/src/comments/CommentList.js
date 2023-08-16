@@ -50,7 +50,7 @@ function CommentList ({ post }) {
     })
 
     return (
-        <div>
+        <div className="comment-div">
             <h2>Comments</h2>
             <div className="box">
             {renderComments}
