@@ -6,7 +6,7 @@ import { ContentContext } from "../context/ContentContext";
 function PostList () {
     const { contents } = useContext(ContentContext);
 
-    const renderPosts = contents?.map(post => {
+    const renderPosts = contents.map(post => {
         return (
             <PostCard
             key={post.id}
@@ -20,7 +20,11 @@ function PostList () {
             <NewPost />
             <hr />
             <br />
-            {renderPosts}
+            {contents.length > 0 ? (
+                renderPosts
+            ):(
+                <p>Loading...</p>
+            )}
         </div>
     )
 }

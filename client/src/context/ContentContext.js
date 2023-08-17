@@ -6,32 +6,30 @@ const ContentProvider = ({children}) => {
     const { setErrors } = useContext(ErrorContext);
     const [contents, setContents] = useState([]);
 
+    useEffect(() => {
+        fetch(`/posts`)
+        .then(resp => {
+            if (resp.ok) {
+                resp.json().then(data => {
+                    setContents(data);
+                });
+            }
+        })
+        .catch(errors => {
+            setErrors(errors);
+        });
+    }, [setContents, setErrors])
+
     // useEffect(() => {
     //     fetch(`/posts`)
-    //     .then(resp => {
-    //         if (resp.ok) {
-    //             resp.json().then(data => {
-    //                 setContents(data)
-    //                 setErrors([])
-    //             })
-    //         }
+    //     .then(resp => resp.json())
+    //     .then(data => {
+    //         setContents(data)
     //     })
     //     .catch(errors => {
     //         setErrors(errors)
     //     })
     // }, [setErrors])
-
-    useEffect(() => {
-        fetch(`/posts`)
-        .then(resp => resp.json())
-        .then(data => {
-            setContents(data)
-            setErrors([])
-        })
-        .catch(errors => {
-            setErrors(errors)
-        })
-    }, [setErrors])
 
     const addPost = (newPost) => {
         setContents([...contents, newPost]);
