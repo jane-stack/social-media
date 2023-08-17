@@ -7,7 +7,7 @@ class User < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_many :liked_posts, through: :likes, source: :post
 
-    before_save { name.downcase! }
+    before_save { email.downcase! }
     validates :name, presence: true
     validates :username, :email, uniqueness: true, presence: true
     validates :password, presence: true, length: { minimum: 8 }
@@ -15,13 +15,6 @@ class User < ApplicationRecord
     validate :password_requirements
 
     private
-
-    # def password_requirements
-    #     return if password.blank?
-    #     unless password.match?(/\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[[:^alnum:]])/)
-    #         errors.add(:password, "must contain at least one uppercase letter, one lowercase letter, one digit, and one special character")
-    #     end
-    # end
 
     def password_requirements
         return if password.blank?

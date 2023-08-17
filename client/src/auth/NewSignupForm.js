@@ -28,13 +28,13 @@ function NewSignupForm () {
         fetch('/signup', {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({name, username, email, password})
+            body: JSON.stringify({name, username, email, password })
         })
         .then(resp => resp.json())
         .then(data => {
             if (data.errors) {
                 setErrors(data.errors);
-                setPassword("");
+                setPassword(!data.errors);
             } else {
                 addUser(data);
                 loginUser(data);

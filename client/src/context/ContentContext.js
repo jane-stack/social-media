@@ -7,29 +7,19 @@ const ContentProvider = ({children}) => {
     const [contents, setContents] = useState([]);
 
     useEffect(() => {
-        fetch(`/posts`)
+        fetch('/posts')
         .then(resp => {
             if (resp.ok) {
                 resp.json().then(data => {
                     setContents(data);
+                    console.log(data);
                 });
             }
         })
         .catch(errors => {
             setErrors(errors);
         });
-    }, [setContents, setErrors])
-
-    // useEffect(() => {
-    //     fetch(`/posts`)
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //         setContents(data)
-    //     })
-    //     .catch(errors => {
-    //         setErrors(errors)
-    //     })
-    // }, [setErrors])
+    }, [setErrors])
 
     const addPost = (newPost) => {
         setContents([...contents, newPost]);
@@ -52,7 +42,7 @@ const ContentProvider = ({children}) => {
     }
 
     return (
-        <ContentContext.Provider value={{ contents, addPost, editPost, deletePost }}>{children}</ContentContext.Provider>
+        <ContentContext.Provider value={{ contents, addPost, editPost, deletePost }}>{ children }</ContentContext.Provider>
     )
 }
 

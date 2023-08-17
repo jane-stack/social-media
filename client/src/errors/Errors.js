@@ -3,12 +3,7 @@ import { ErrorContext } from "../context/ErrorContext"
 
 function Errors () {
     const { errors } = useContext(ErrorContext);
-
-    const errorList = errors.map(error => (
-        <div key={error.id}>
-            <p>{error}</p>
-        </div>
-    ))
+    const errorList = errors.map((error, idx) => <p key={idx}>{error}</p>)
 
     return (
         <div>{ errorList }</div>
