@@ -17,11 +17,26 @@ function PostDetail () {
     const [liked, setLiked] = useState(false);
     const params = useParams();
 
+    // useEffect(() => {
+    //     fetch(`/posts/${post.id}/likes`)
+    //     .then(resp => resp.json())
+    //     .then(data => {
+    //         setLiked(data.liked);
+    //     })
+    //     .catch(error => {
+    //         setErrors(error)
+    //     })
+    // }, [post.id, setErrors])
+
     useEffect(() => {
         fetch(`/posts/${post.id}/likes`)
-        .then(resp => resp.json())
-        .then(data => {
-            setLiked(data.liked);
+        .then(resp => {
+            if (resp.ok) {
+                resp.json().then(data => {
+                    setLiked(data.liked)
+                    setErrors({})
+                })
+            }
         })
         .catch(error => {
             setErrors(error)

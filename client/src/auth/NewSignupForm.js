@@ -54,7 +54,6 @@ function NewSignupForm () {
             id="first_name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required={true}
             />
             </div>
             <div>
@@ -65,7 +64,6 @@ function NewSignupForm () {
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required={true}
             />
             </div>
             <div>
@@ -76,7 +74,6 @@ function NewSignupForm () {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required={true}
             />
             </div>
             <div>
@@ -87,7 +84,6 @@ function NewSignupForm () {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required={true}
             />
             </div>
             <button type="submit">Signup</button>

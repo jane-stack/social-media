@@ -19,7 +19,7 @@ export class ErrorBoundary extends Component {
         }
 
         return (
-            <div className="error-b"><strong>Something went wrong</strong></div>
+            <div className="error-b"><strong>...Something went wrong</strong></div>
         );
     }
 }

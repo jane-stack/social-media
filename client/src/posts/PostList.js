@@ -6,7 +6,7 @@ import { ContentContext } from "../context/ContentContext";
 function PostList () {
     const { contents } = useContext(ContentContext);
 
-    const renderPosts = contents.map(post => {
+    const renderPosts = contents?.map(post => {
         return (
             <PostCard
             key={post.id}

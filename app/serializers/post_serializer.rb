@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :content, :creator, :comments
+  attributes :id, :title, :content, :creator, :comments, :likes
 
   def creator
     {

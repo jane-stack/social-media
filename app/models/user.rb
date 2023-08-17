@@ -7,44 +7,39 @@ class User < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_many :liked_posts, through: :likes, source: :post
 
-    before_save { email.downcase! }
+    before_save { name.downcase! }
     validates :name, presence: true
     validates :username, :email, uniqueness: true, presence: true
-    validates :password, length: { minimum: 8 }
-    
-    # ,
-    # if: :password_validation_required?
+    validates :password, presence: true, length: { minimum: 8 }
 
-    validate :password_lower_case
-    validate :password_uppercase
-    validate :password_special_char
-    validate :password_contains_number
+    validate :password_requirements
 
-    # def password_validation_required?
-    #     password = user.password_digest
-    #     password.nil? || password.empty?
+    private
+
+    # def password_requirements
+    #     return if password.blank?
+    #     unless password.match?(/\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[[:^alnum:]])/)
+    #         errors.add(:password, "must contain at least one uppercase letter, one lowercase letter, one digit, and one special character")
+    #     end
     # end
-    
-    def password_uppercase
-        return if !!password.match(/\p{Upper}/)
-        errors.add :password, ' must contain at least 1 uppercase '
-    end
 
-    def password_lower_case
-        return if !!password.match(/\p{Lower}/)
-        errors.add :password, ' must contain at least 1 lowercase '
-    end
+    def password_requirements
+        return if password.blank?
 
-    def password_special_char
-        special = "?<>',?[]}{=-)(*&^%$#`~{}!"
-        regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
-        return if password =~ regex
-        errors.add :password, ' must contain special character'
-    end
+        unless password.match?(/[a-z]/)
+            errors.add(:password, "must contain one lowercase letter")
+        end
 
-    def password_contains_number
-        return if password.count("0-9") > 0
-        errors.add :password, ' must contain at least one number'
-    end
+        unless password.match?(/[A-Z]/)
+            errors.add(:password, "must contain one uppercase letter")
+        end
 
+        unless password.match?(/\d/)
+            errors.add(:password, "must contain one digit")
+        end
+
+        unless password.match?(/[[:^alnum:]]/)
+            errors.add(:password, "must contain one special character")
+        end
+    end
 end
