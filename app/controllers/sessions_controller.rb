@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :user_id
+        puts "user id removed"
         render json: {message: "Successfully Logged Out"}
     end
 

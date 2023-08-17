@@ -6,12 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { ErrorProvider } from './context/ErrorContext';
 import { UserProvider } from './context/UserContext';
 import { ContentProvider } from './context/ContentContext';
-import { ErrorBoundary } from './errors/ErrorBoundary';
+import ErrorBoundary from './errors/ErrorBoundary';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ErrorBoundary>
+    <ErrorBoundary fallback="Error">
     <ErrorProvider>
       <UserProvider>
         <ContentProvider>

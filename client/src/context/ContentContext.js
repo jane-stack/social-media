@@ -1,9 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { ErrorContext } from "./ErrorContext";
+import { UserContext } from "./UserContext";
 
 const ContentContext = createContext({});
 const ContentProvider = ({children}) => {
     const { setErrors } = useContext(ErrorContext);
+    const { loggedIn } = useContext(UserContext);
     const [contents, setContents] = useState([]);
 
     useEffect(() => {
@@ -19,7 +21,7 @@ const ContentProvider = ({children}) => {
         .catch(errors => {
             setErrors(errors);
         });
-    }, [setErrors])
+    }, [setErrors, loggedIn])
 
     const addPost = (newPost) => {
         setContents([...contents, newPost]);

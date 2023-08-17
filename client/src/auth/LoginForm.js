@@ -40,6 +40,7 @@ function LoginForm () {
         })
     }
 
+
     return (
         <form className="form" onSubmit={handleSubmit}>
             <h3>Welcome to Random Post</h3>

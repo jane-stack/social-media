@@ -23,7 +23,6 @@ function PostDetail () {
             if (resp.ok) {
                 resp.json().then(data => {
                     setLiked(data.liked)
-                    console.log(data)
                 })
             }
         })
