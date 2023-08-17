@@ -23,7 +23,9 @@ function PostDetail () {
         .then(data => {
             setLiked(data.liked);
         })
-        .catch(error => setErrors(error))
+        .catch(error => {
+            setErrors(error)
+        })
     }, [post.id, setErrors])
 
     const handleLike = () => {
