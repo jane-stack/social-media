@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
     before_action :find_post, only: [:show, :update, :destroy]
     before_action :unprocessable_entity_if_not_found, only: [:update, :destroy]
-    # before_action :authorize, only: [:index, :create]
-    # skip_before_action :authorize, only: [:index]
     before_action only: [:update, :destroy] do
         authorize_user_resource(@post.creator_id)
     end

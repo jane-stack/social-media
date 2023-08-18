@@ -9,8 +9,9 @@ function PostDetail () {
     const { setErrors } = useContext(ErrorContext);
     const { user } = useContext(UserContext);
     const { contents, deletePost } = useContext(ContentContext);
-    const postId = parseInt(useParams().id);
-    const post = contents.find(post => post.id === postId);
+    const { id: paramsId } = useParams();
+    const id = parseInt(paramsId);
+    const post = contents.find(post => post.id === id);
     const navigate = useNavigate();
     const [commentMode, setCommentMode] = useState(false);
     const openComment = () => setCommentMode(commentMode => !commentMode);
@@ -18,29 +19,18 @@ function PostDetail () {
     const params = useParams();
 
     useEffect(() => {
-        fetch(`/posts/${post.id}/likes`)
+        fetch(`/posts/${params.id}/likes`)
         .then(resp => {
             if (resp.ok) {
                 resp.json().then(data => {
-                    setLiked(data.liked)
-                })
-            }
+                    setLiked(data.liked);
+                });
+            } 
         })
-        .catch(error => {
-            setErrors(error)
-        })
-    }, [post.id, setErrors])
-
-    // useEffect(() => {
-    //     fetch(`/posts/${post.id}/likes`)
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //         setLiked(data.liked);
-    //     })
-    //     .catch(error => {
-    //         setErrors(error)
-    //     })
-    // }, [post.id, setErrors])
+        .catch(errors => {
+            setErrors(errors);
+        });
+    }, [post,params, setErrors])
 
     const handleLike = () => {
         fetch(`/posts/${post.id}/likes`, {
@@ -85,6 +75,10 @@ function PostDetail () {
         .then(resp => resp.json())
         .then(deletePost(post.id))
         .then(navigate(`/posts`))
+    }
+
+    if (!post || !post.title) {
+        return <p>Loading..</p>
     }
 
     return (

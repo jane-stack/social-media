@@ -14,7 +14,6 @@ const ContentProvider = ({children}) => {
             if (resp.ok) {
                 resp.json().then(data => {
                     setContents(data);
-                    console.log(data);
                 });
             }
         })
@@ -22,6 +21,29 @@ const ContentProvider = ({children}) => {
             setErrors(errors);
         });
     }, [setErrors, loggedIn])
+
+    // useEffect(() => {
+    //     if (loggedIn) {
+    //         fetch('/posts')
+    //         .then(resp => {
+    //             if (resp.ok) {
+    //                 resp.json().then(data => {
+    //                     setContents(data);
+    //                     localStorage.setItem('contents', JSON.stringify(data));
+    //                 });
+    //             } else {
+    //                 setErrors('Error fetching data');
+    //             }
+    //         })
+    //         .catch(error => {
+    //             setErrors(error);
+    //         });
+    //     } else {
+    //         const storedData = localStorage.getItem('contents');
+    //         const parsedData = JSON.parse(storedData);
+    //         setContents(parsedData);
+    //     }
+    // }, [setErrors, loggedIn])
 
     const addPost = (newPost) => {
         setContents([...contents, newPost]);

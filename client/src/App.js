@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/posts" element={<PostList />} />
-        <Route path="/posts/:id/edit" element={<EditPost />} />
+        <Route path="/posts/:id/edit" element={<EditPost/>} />
         <Route path="/posts/:id" element={<PostDetail />} />
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<LoginPage />} />
