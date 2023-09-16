@@ -3,6 +3,6 @@ class WelcomeMailer < ApplicationMailer
 
     def welcome_email
         @user = params[:user]
-        mail(to: @user.email, subject: "Welcome to Random Posts")
+        mail(to: @user.email, subject: "Welcome to Social Media Demo")
     end
 end
