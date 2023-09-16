@@ -30,7 +30,6 @@ function PostComment ({post, addComment}) {
         <form onSubmit={handleSubmit}>
             <div>
                 <input className="comment-input" type="text" name="body" placeholder="Write a comment..." value={body} onChange={(e) => setBody(e.target.value)} />
-                {/* <button type="submit">Post</button> */}
             </div>
         </form>
     )

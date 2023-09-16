@@ -30,9 +30,6 @@ function CommentEdit ({post, comment, onEditComment, onEditMode, setOnEditMode})
         <form onSubmit={handleSubmit}>
             <div>
             <input className="input-edit" type="text" name="body" value={body} onChange={(e) => setBody(e.target.value)} />
-            <br />
-            <button className="edit-btn" type="submit">Done</button>
-            <button className="edit-btn" onClick={() => setOnEditMode(!onEditMode)}>Cancel</button>
             </div>
         </form>
     )

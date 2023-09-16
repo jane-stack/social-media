@@ -7,7 +7,9 @@ import Errors from "../errors/Errors";
 function EditPost () {
     const { setErrors } = useContext(ErrorContext);
     const { contents, editPost } = useContext(ContentContext);
-    const id = parseInt(useParams().id);
+    // const id = parseInt(useParams().id);
+    const { id: paramsId } = useParams();
+    const id = parseInt(paramsId);
     const post = contents.find(post => post.id === id);
     const initialState = {
         title: post.title,
@@ -38,22 +40,19 @@ function EditPost () {
             } else {
                 editPost(data)
                 setErrors([])
-                navigate(`/posts/${post.id}`)
+                navigate(`/posts`)
             }
         })
     }
 
     return (
-        <form className="post-form" onSubmit={handleSubmit}>
-            <h2>Edit This Post</h2>
+        <form className="post-form-2" onSubmit={handleSubmit}>
             <div className="new-post">
-                Title &nbsp;
-                <input className="post-input" type="text" name="title" value={formData.title} onChange={handleChange} />
-                Content &nbsp;
-                <textarea className="post-input-description" type="textbox" name="content" value={formData.content} onChange={handleChange} />
+                <input className="post-input" type="text" name="title" placeholder="Title" value={formData.title} onChange={handleChange} />
+                <textarea className="post-input-description" type="textbox" name="content" placeholder="Content" value={formData.content} onChange={handleChange} />
                 <br />
                 <button type="submit">Submit</button>
-                <button><Link to={`/posts/${post.id}`}>Cancel</Link></button>
+                <button><Link to={`/posts`}>Cancel</Link></button>
             </div>
             <Errors />
         </form>

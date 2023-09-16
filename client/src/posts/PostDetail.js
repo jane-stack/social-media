@@ -8,10 +8,10 @@ import { ErrorContext } from "../context/ErrorContext";
 function PostDetail ({post}) {
     const { setErrors } = useContext(ErrorContext);
     const { user } = useContext(UserContext);
-    const { contents, deletePost } = useContext(ContentContext);
+    const { deletePost } = useContext(ContentContext);
     // const { id: paramsId } = useParams();
     // const id = parseInt(paramsId);
-    // const post = contents.find(post => post.id === id);
+    // const postIt = contents.find(post => post.id === id);
     const navigate = useNavigate();
     const [commentMode, setCommentMode] = useState(false);
     const openComment = () => setCommentMode(commentMode => !commentMode);
