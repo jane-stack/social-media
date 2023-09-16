@@ -44,49 +44,53 @@ function NewSignupForm () {
     }
 
     return (
-        <form className="form" onSubmit={handleSubmit}>
-            <h3>Create a Random Post Account</h3>
+        <form className="form-signup" onSubmit={handleSubmit}>
+            <h3>Create An Account</h3>
             <div>
-            Full Name &nbsp;
             <input
+            className="login-input"
             type="text"
             name="first_name"
             id="first_name"
+            placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             />
             </div>
             <div>
-            Username &nbsp;
             <input
+            className="login-input"
             type="text"
             name="username"
             id="username"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             />
             </div>
             <div>
-            Email &nbsp;
             <input
+            className="login-input"
             type="text"
             name="email"
             id="email"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             />
             </div>
             <div>
-            Password &nbsp;
             <input
+            className="login-input"
             type="password"
             name="password"
             id="password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
             </div>
-            <button type="submit">Signup</button>
+            <button type="submit" className="login-btn">Sign Up</button>
             <Errors />
         </form>
     )

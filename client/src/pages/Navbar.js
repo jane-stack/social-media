@@ -31,7 +31,7 @@ function Navbar () {
 
     return (
         <div className="navbar">
-            <div><h1>Random Posts</h1></div>
+            <div><h1>SOCIAL MEDIA DEMO</h1></div>
             {loggedIn ? signedIn() : signedOut()}
         </div>
     )

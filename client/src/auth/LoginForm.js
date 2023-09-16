@@ -42,31 +42,33 @@ function LoginForm () {
 
 
     return (
-        <form className="form" onSubmit={handleSubmit}>
-            <h3>Welcome to Random Post</h3>
+        <form className="form-login" onSubmit={handleSubmit}>
+            <h3>SIGN IN</h3>
             <div>
-            Username &nbsp;
             <input
+            className="login-input"
             type="text"
             name="username"
             id="username"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required={true}
             />
             </div>
             <div>
-            Password &nbsp;
             <input
+            className="login-input"
             type="password"
             name="password"
             id="password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required={true}
             />
             </div>
-            <button type="submit">Log In</button>
+            <button type="submit" className="login-btn">Sign In</button>
             <Errors />
 
         </form>
