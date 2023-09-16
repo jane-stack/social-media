@@ -33,14 +33,14 @@ function CommentCard ({post, comment, onDeleteComments, onEditComment}) {
             {onEditMode[comment.id] ? (
                 <CommentEdit post={post} comment={comment} onEditComment={onEditComment} onEditMode={onEditMode} setOnEditMode={setOnEditMode}/>
             ):(
-                <div><strong className="username-color">{comment.user.username}</strong> : {comment.body}</div>
+                <div className="each-comment"><strong className="username-color">{comment.user.username}</strong> : {comment.body}</div>
             )}
             {isHovered && (
                 <div>
                 {user && user.username === comment.user.username && (
                     <div>
-                    <button className="edit-btn" onClick={() => toggleEditMode(comment.id)}>✏️</button>
-                    <button className="delete-btn" onClick={deleteComment}>❌</button>
+                    <button className="edit-btn" onClick={() => toggleEditMode(comment.id)}>EDIT</button>
+                    <button className="delete-btn" onClick={deleteComment}>DELETE</button>
                     </div>
                 )}
                 </div>

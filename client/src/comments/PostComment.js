@@ -29,9 +29,8 @@ function PostComment ({post, addComment}) {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-            <textarea className="comment-textarea" type="text" name="body" value={body} onChange={(e) => setBody(e.target.value)} />
-            <br /><br />
-            <button type="submit" className="post-btn">Post Comment</button>
+                <input className="comment-input" type="text" name="body" placeholder="Write a comment..." value={body} onChange={(e) => setBody(e.target.value)} />
+                {/* <button type="submit">Post</button> */}
             </div>
         </form>
     )

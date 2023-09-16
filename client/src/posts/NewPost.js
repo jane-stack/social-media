@@ -35,12 +35,11 @@ function NewPost () {
     return (
         <form className="post-form" onSubmit={handleSubmit}>
             <div className="new-post">
-                Title &nbsp;
-                <input className="post-input" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
-                Content &nbsp;
-                <textarea className="post-input-description" type="textbox" name="content" value={content} onChange={(e) => setContent(e.target.value)} />
+                POST ANYTHING HERE
+                <input className="post-input" type="text" name="title" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                <textarea className="post-input-description" type="textbox" name="content" placeholder="Content" value={content} onChange={(e) => setContent(e.target.value)} />
                 <br />
-                <button type="submit">Submit</button>
+                <button type="submit" className="post-btn">POST</button>
             </div>
             <Errors />
         </form>

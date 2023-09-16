@@ -51,14 +51,12 @@ function CommentList ({ post }) {
 
     return (
         <div className="comment-div">
-            <h2>Comments</h2>
             <div className="box">
                 {comments.length > 0 ? (
                     renderComments
                 ):(
                     <p>Be the first to comment!</p>
                 )}
-            <br/>
             <br/>
             <PostComment post={post} addComment={addComment} comments={comments} />
             </div>

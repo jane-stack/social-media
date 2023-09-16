@@ -5,13 +5,13 @@ import { UserContext} from "../context/UserContext";
 import CommentList from "../comments/CommentList";
 import { ErrorContext } from "../context/ErrorContext";
 
-function PostDetail () {
+function PostDetail ({post}) {
     const { setErrors } = useContext(ErrorContext);
     const { user } = useContext(UserContext);
     const { contents, deletePost } = useContext(ContentContext);
-    const { id: paramsId } = useParams();
-    const id = parseInt(paramsId);
-    const post = contents.find(post => post.id === id);
+    // const { id: paramsId } = useParams();
+    // const id = parseInt(paramsId);
+    // const post = contents.find(post => post.id === id);
     const navigate = useNavigate();
     const [commentMode, setCommentMode] = useState(false);
     const openComment = () => setCommentMode(commentMode => !commentMode);
@@ -19,7 +19,8 @@ function PostDetail () {
     const params = useParams();
 
     useEffect(() => {
-        fetch(`/posts/${params.id}/likes`)
+        // fetch(`/posts/${params.id}/likes`)
+        fetch(`/posts/${post.id}/likes`)
         .then(resp => {
             if (resp.ok) {
                 resp.json().then(data => {
@@ -30,7 +31,7 @@ function PostDetail () {
         .catch(errors => {
             setErrors(errors);
         });
-    }, [post,params, setErrors])
+    }, [post, params, setErrors])
 
     const handleLike = () => {
         fetch(`/posts/${post.id}/likes`, {
@@ -84,9 +85,11 @@ function PostDetail () {
     return (
         <div>
             <div className="box-2">
-                <h1>{post.title}</h1>
                 <h5>{post.creator.username}</h5>
+                <h3>{post.title}</h3>
                 <p>{post.content}</p>
+                <hr/>
+                <div className="post-bar">
                 {liked ? (
                     <button className="edit-btn" onClick={handleUnlike}>Unlike</button>
                 ):(
@@ -99,12 +102,8 @@ function PostDetail () {
                     <button className="edit-btn" onClick={onDeletePost}>Delete</button>
                     </>
                 )}
-                <br /><br />
-            </div>
-            <br />
-            <hr />
-            <br />
-            <div>
+                </div>
+                <hr/>
                 {commentMode && <CommentList post={post}/>}
             </div>
         </div>

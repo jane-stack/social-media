@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import PostCard from "./PostCard";
+import PostDetail from "./PostDetail";
 import NewPost from "./NewPost";
 import { ContentContext } from "../context/ContentContext";
 
@@ -8,7 +8,7 @@ function PostList () {
 
     const renderPosts = contents.map(post => {
         return (
-            <PostCard
+            <PostDetail
             key={post.id}
             post={post}
         />
@@ -16,9 +16,8 @@ function PostList () {
     })
 
     return (
-        <div>
+        <div className="posts-list">
             <NewPost />
-            <hr />
             <br />
             {contents.length > 0 ? (
                 renderPosts

@@ -45,7 +45,7 @@ function NewSignupForm () {
 
     return (
         <form className="form-signup" onSubmit={handleSubmit}>
-            <h3>Create An Account</h3>
+            <h3>CREATE AN ACCOUNT</h3>
             <div>
             <input
             className="login-input"

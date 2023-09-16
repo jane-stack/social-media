@@ -15,7 +15,7 @@ code {
 
 .App {
   text-align: center;
-  background-color: white;
+  background-color: rgb(225, 225, 225);
   /* min-height: 100vh; */
   display: flex;
   /* flex-direction: column; */
@@ -35,12 +35,13 @@ code {
   margin: auto;
   padding: 10px;
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 /* handles the size of the ChatSpace in Navbar */
 .nav-title {
   font-size: calc(10px + 2vmin);
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 /* handles the navbar */
@@ -50,8 +51,8 @@ code {
   padding: 20px;
   margin: 0 6px 6px;
   background: none;
+  font-size: 12px;
   text-decoration: line;
-  color: rgb(182, 182, 182);
 }
 
 .words {
@@ -63,29 +64,27 @@ code {
   padding: 150px;
   text-align: center;
   padding-bottom: 100px;
-  background-color: white;
   color: black;
   display: block;
   height: 15em;
   line-height: 3.5;
-  border: 1px solid black;
 }
 
 .form-signup {
   padding: 150px;
   text-align: center;
   padding-bottom: 100px;
-  background-color: white;
   color: black;
   display: block;
   height: 23em;
   line-height: 3.5;
-  border: 1px solid black;
 }
 
 .post-form {
   padding-top: 50px;
   text-align: center;
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
 
 .post-input {
@@ -109,36 +108,32 @@ code {
 
 .box {
   /* background-color: #8c8c8c; */
-  padding: 1rem;
-  margin: 0.5rem;
-  width: 400px;
-  border-radius: 0.5rem;
-  color: white;
-  text-align: left;
-  align-items: center;
+  /* padding: 1rem; */
+  /* margin: 0.5rem; */
+  width: 300px;
+  /* border-radius: 0.5rem; */
+  /* color: black; */
+  /* text-align: center; */
+  /* align-items: center; */
 }
 
 .box-2 {
-  background-color: #434343;
+  background-color: white;
   padding: 1rem;
-  margin: 0.2rem;
-  border-radius: 0.5rem;
-  color: white;
-  text-align: center;
+  margin: 0.5rem;
+  /* border-radius: 0.5rem; */
+  color: black;
+  text-align: left;
+  /* align-items: center; */
 }
 
 .box-3 {
   display: flex;
-  background-color: #434343;
+  background-color: white;
   padding: 1rem;
   margin: 0.2rem;
   border-radius: 0.5rem;
-  color: white;
-}
-
-.title-link {
-  color: white;
-  text-decoration: none;
+  color: black;
 }
 
 .chat-textarea {
@@ -159,16 +154,16 @@ code {
 .edit-btn {
   background: transparent;
   border: none;
-  color: white;
+  color: black;
 }
 
 a:link {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
 a:visited {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
@@ -208,14 +203,15 @@ a:visited {
 
 .box-comment {
   padding: .25rem;
-  color: white;
+  color: black;
   text-align: left;
 }
 
 .comment-div {
   margin: auto;
-  width: 100%;
+  /* width: 100%; */
   padding: 10px;
+  background-color: white;
 }
 
 .comment-box {
@@ -227,27 +223,27 @@ a:visited {
 
 
 .username-color {
-  color: rgb(3, 187, 3);
+  color: rgb(0, 0, 0);
 }
 
 .comment-textarea {
-  background-color: #282828;
-  width: 100%;
-  height: 50px;
-  padding: 10px;
-  box-sizing: border-box;
-  color: white;
-  resize: none;
+  background: transparent;
+  width: 500px;
+  /* height: auto; */
+  padding: 5px;
+  /* box-sizing: border-box; */
+  color: black;
+  /* resize: none; */
 }
 
 .post-btn {
   background: transparent;
   color: white;
-  border: 1px solid
+  border: 1px solid;
 }
 
 .error-b {
-  color: white;
+  color: black;
 }
 
 .login-btn {
@@ -262,4 +258,31 @@ a:visited {
   border: 1px solid rgb(163, 163, 163);
   padding: 3%;
   width: 300px;
+}
+
+.post-btn {
+  border: 1px solid white;
+  color: white;
+  width: 600px;
+  padding: 1.5%;
+}
+
+.post-bar {
+  color: black;
+  font-size: 5px;
+}
+
+.each-comment {
+  background-color: #e8e8e8;
+  border-radius: 1rem;
+  padding: 10px;
+  width: 600px;
+}
+
+.comment-input {
+  background-color: #e8e8e8;
+  border-radius: 1rem;
+  padding: 10px;
+  width: 600px;
+  border: none;
 }
