@@ -16,10 +16,7 @@ code {
 .App {
   text-align: center;
   background-color: rgb(225, 225, 225);
-  /* min-height: 100vh; */
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
   justify-content: center;
   color: black;
 }
@@ -86,12 +83,6 @@ code {
   background-color: rgb(0, 0, 0);
 }
 
-.post-form-2 {
-  padding-top: 50px;
-  text-align: center;
-  background-color: rgb(225, 225, 225);
-}
-
 .post-input {
   width: 100%;
   padding: 12px 20px;
@@ -112,24 +103,15 @@ code {
 }
 
 .box {
-  /* background-color: #8c8c8c; */
-  /* padding: 1rem; */
-  /* margin: 0.5rem; */
   width: 300px;
-  /* border-radius: 0.5rem; */
-  /* color: black; */
-  /* text-align: center; */
-  /* align-items: center; */
 }
 
 .box-2 {
   background-color: white;
   padding: 1rem;
   margin: 0.5rem;
-  /* border-radius: 0.5rem; */
   color: black;
   text-align: left;
-  /* align-items: center; */
 }
 
 .box-3 {
@@ -177,11 +159,6 @@ a:visited {
 }
 
 .input-edit {
-  /* background: none;
-  width: 80%;
-  padding: 6px 10px;
-  margin: 8px 0;
-  color: white; */
   background-color: #e8e8e8;
   border-radius: 1rem;
   padding: 10px;
@@ -193,7 +170,6 @@ a:visited {
 }
 
 .home-box {
-  /* padding: 1rem; */
   margin: 1rem;
   text-align: center;
 
@@ -218,7 +194,6 @@ a:visited {
 
 .comment-div {
   margin: auto;
-  /* width: 100%; */
   padding: 10px;
   background-color: white;
 }
@@ -238,11 +213,8 @@ a:visited {
 .comment-textarea {
   background: transparent;
   width: 500px;
-  /* height: auto; */
   padding: 5px;
-  /* box-sizing: border-box; */
   color: black;
-  /* resize: none; */
 }
 
 .post-btn {

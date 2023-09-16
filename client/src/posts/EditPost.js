@@ -46,13 +46,14 @@ function EditPost () {
     }
 
     return (
-        <form className="post-form-2" onSubmit={handleSubmit}>
+        <form className="post-form" onSubmit={handleSubmit}>
             <div className="new-post">
                 <input className="post-input" type="text" name="title" placeholder="Title" value={formData.title} onChange={handleChange} />
                 <textarea className="post-input-description" type="textbox" name="content" placeholder="Content" value={formData.content} onChange={handleChange} />
                 <br />
-                <button type="submit">Submit</button>
-                <button><Link to={`/posts`}>Cancel</Link></button>
+                <button type="submit" className="post-btn">POST</button>
+                <br /><br/>
+                <button className="post-btn"><Link to={`/posts`}>CANCEL</Link></button>
             </div>
             <Errors />
         </form>
