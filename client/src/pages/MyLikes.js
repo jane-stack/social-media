@@ -1,10 +1,10 @@
-function MyLikes () {
+// function MyLikes () {
 
-    return (
-        <div>
-            Posts I've Liked
-        </div>
-    )
-}
+//     return (
+//         <div>
+//             Posts I've Liked
+//         </div>
+//     )
+// }
 
-export default MyLikes;
+// export default MyLikes;

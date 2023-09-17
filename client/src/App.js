@@ -23,9 +23,9 @@ function App() {
         {/* <Route path="/posts/:id" element={<PostDetail />} /> */}
         <Route path="/home" element={<MyPage />} />
         <Route path="/" element={<LoginPage />} />
-        <Route path="/myposts" element={<MyPosts />} />
+        {/* <Route path="/myposts" element={<MyPosts />} />
         <Route path="/myconvo" element={<Conversation />} />
-        <Route path="/mylikes" element={<MyLikes />} />
+        <Route path="/mylikes" element={<MyLikes />} /> */}
       </Routes>
     </div>
     </BrowserRouter>
