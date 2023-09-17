@@ -3,7 +3,7 @@ import HomeNav from "./HomeNav";
 function MyPage () {
 
     return (
-        <div className="App">
+        <div className="posts-list">
             <HomeNav />
         </div>
     );

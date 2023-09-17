@@ -169,22 +169,21 @@ a:visited {
   display: flex;
 }
 
-.home-box {
+/* .home-box {
   margin: 1rem;
   text-align: center;
 
-}
+} */
 
-.box-home {
-  background-color: #434343;
+/* .box-home {
   width: auto;
   height: 30px;
   padding: 1rem;
   margin: 0.4rem;
   border-radius: 0.5rem;
-  color: white;
+  color: black;
   text-align: center;
-}
+} */
 
 .box-comment {
   padding: .25rem;

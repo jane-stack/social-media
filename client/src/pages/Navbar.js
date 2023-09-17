@@ -16,7 +16,7 @@ function Navbar () {
         return (
             <>
             {/* <div><h4>{user.name}</h4></div> */}
-            <Link to="/home" className="nav-link">MY PAGE</Link>
+            <Link to="/home" className="nav-link">HOME</Link>
             <Link to="/posts" className="nav-link">COMMUNITY</Link>
             <Link to="#" className="nav-link" onClick={signoutUser}>LOGOUT</Link>
             </>
