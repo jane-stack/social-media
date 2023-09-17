@@ -18,6 +18,7 @@ adalyn = User.create(name: "Adalyn Huynh", username: "addyh", email: "adalyn_huy
 # Posts
 p1 = Post.create(title: "Almost There", content: "This adventure has been a rollercoaster ride, brimming with both exasperation and exhilaration! The prospect of reaching the end and propelling forward fills me with sheer delight.", creator: jane)
 p2 = Post.create(title: "Hike is Life!", content: "I cannot contain my excitement as I proudly declare that I am about to conquer my first ever 13er hike in the majestic Colorado mountains! The thrill coursing through me is indescribable, and I can hardly wait to embark on this extraordinary adventure!", creator: tuyen)
+p3 = Post.create(title: "Sunset Lover", content: "I absolutely adore dawn, my favorite time of the day. The sunlight during this magical hour casts a beautiful glow, leaving the sky kissed by it's warmth. It's a serene moment that fills me with tranquility. The sky is painted with stunning shades of orange, blue, and purple, creating a breathtaking display.", creator: jane)
 
 # Comments
 c1 = Comment.create(body: "This is exciting! I wish you nothing but success going forward!", user: tuyen, post: p1)
