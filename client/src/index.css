@@ -267,3 +267,9 @@ a:visited {
   width: 600px;
   border: none;
 }
+
+.home-bar {
+  color: black;
+  margin: auto;
+  text-align: center;
+}

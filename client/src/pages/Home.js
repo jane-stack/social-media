@@ -2,7 +2,7 @@
 // import { Link } from "react-router-dom";
 // import { UserContext } from "../context/UserContext";  
 
-function Home () {
+// function Home () {
     // const { user } = useContext(UserContext);
 
     // const renderOnce = useMemo(() => {
@@ -45,6 +45,6 @@ function Home () {
     //         </div>
     //     </div>
     // )
-}
+// }
 
-export default Home;
+// export default Home;
