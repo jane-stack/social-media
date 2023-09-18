@@ -2,9 +2,9 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './pages/Navbar';
 import LoginPage from './pages/LoginPage';
-import PostList from './posts/PostList';
 import EditPost from './posts/EditPost';
 import MyPage from './pages/MyPage';
+import PostList from './posts/PostList';
 
 function App() {
 

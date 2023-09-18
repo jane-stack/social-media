@@ -1,10 +1,12 @@
-function PostPage () {
+//  import PostList from '../posts/PostList';
 
-    return (
-        <div>
-            CONNECTING PAGE
-        </div>
-    )
-}
+// function PostPage () {
 
-export default PostPage;
+//     return (
+//         <div>
+//             <PostList />
+//         </div>
+//     )
+// }
+
+// export default PostPage;
