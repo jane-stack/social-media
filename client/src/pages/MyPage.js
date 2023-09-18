@@ -13,6 +13,12 @@ function MyPage () {
                     <div className="box-2" key={post.id}>
                         <h3>{post.title}</h3>
                         <p>{post.content}</p>
+                        <hr />
+                        <button className="edit-btn">Like</button>
+                        <button className="edit-btn">Comments</button>
+                        <button className="edit-btn">Edit</button>
+                        <button className="edit-btn">Delete</button>
+                        <hr />
                     </div>
                 ))}
             </div>
